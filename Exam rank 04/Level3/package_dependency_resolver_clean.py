@@ -1,3 +1,47 @@
+# def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
+#     if not packages or len(packages) == 0:
+#         return []
+
+#     graph: dict[str, list[str]] = {}
+#     indegrees: dict[str, int] = {}
+
+#     for pkg in packages:
+#         graph[pkg] = []
+#         indegrees[pkg] = 0
+
+#     for pkg, deps in packages.items():
+#         indegree_value: int = 0
+#         for dep in deps:
+#             if dep in packages:
+#                 indegree_value += 1
+#                 graph[dep].append(pkg)
+#         indegrees[pkg] = indegree_value
+
+#     queue: list = []
+#     for pkg in packages:
+#         if indegrees[pkg] == 0:
+#             queue.append(pkg)
+#     queue.sort()
+
+#     result: list = []
+
+#     while len(queue) > 0:
+#         next_queue: list = []
+#         for current in queue:
+#             result.append(current)
+#             for pkg in graph[current]:
+#                 indegrees[pkg] -= 1
+#                 if indegrees[pkg] == 0:
+#                     next_queue.append(pkg)
+#         next_queue.sort()
+#         queue = next_queue
+
+#     if len(result) == len(packages):
+#         return result
+#     else:
+#         return []
+
+
 """
 My prepared solution 1:
 
@@ -12,50 +56,6 @@ Output: ["driver", "database", "app"]
 # Dependencies: driver → database → app
 
 """
-
-
-def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
-    if not packages or len(packages) == 0:
-        return []
-
-    graph: dict[str, list[str]] = {}
-    indegrees: dict[str, int] = {}
-
-    for pkg in packages:
-        graph[pkg] = []
-        indegrees[pkg] = 0
-
-    for pkg, deps in packages.items():
-        indegree_value: int = 0
-        for dep in deps:
-            if dep in packages:
-                indegree_value += 1
-                graph[dep].append(pkg)
-        indegrees[pkg] = indegree_value
-
-    queue: list = []
-    for pkg in packages:
-        if indegrees[pkg] == 0:
-            queue.append(pkg)
-    queue.sort()
-
-    result: list = []
-
-    while len(queue) > 0:
-        next_queue: list = []
-        for current in queue:
-            result.append(current)
-            for pkg in graph[current]:
-                indegrees[pkg] -= 1
-                if indegrees[pkg] == 0:
-                    next_queue.append(pkg)
-        next_queue.sort()
-        queue = next_queue
-
-    if len(result) == len(packages):
-        return result
-    else:
-        return []
 
 
 print("# Dependencies: driver → database → app")
