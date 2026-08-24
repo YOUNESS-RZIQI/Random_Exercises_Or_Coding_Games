@@ -1,3 +1,22 @@
+# def array_rotation_detector(arr1: list[int], arr2: list[int]) -> bool:
+#     if arr1 is None and arr2 is None:
+#         return True
+#     elif arr1 == arr2:
+#         return True
+#     elif len(arr1) != len(arr2):
+#         return False
+
+#     n: int = len(arr1)
+
+#     # range from 1, because -0 is error and omits arr2
+#     for i in range(1, n):
+#         if (arr1[-i:] + arr1[:-i]) == arr2:
+#             return True
+#     return False
+
+
+
+
 """
 Write a function that determines if one array is a rotation
 of another array.
@@ -43,22 +62,6 @@ Input: array_rotation_detector([1, 1, 1], [1, 1, 1])
 Output: True
 """
 
-
-def array_rotation_detector(arr1: list[int], arr2: list[int]) -> bool:
-    if arr1 is None and arr2 is None:
-        return True
-    elif arr1 == arr2:
-        return True
-    elif len(arr1) != len(arr2):
-        return False
-
-    n: int = len(arr1)
-
-    # range from 1, because -0 is error and omits arr2
-    for i in range(1, n):
-        if (arr1[-i:] + arr1[:-i]) == arr2:
-            return True
-    return False
 
 
 print(f"True: {array_rotation_detector([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])}")
