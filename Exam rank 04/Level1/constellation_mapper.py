@@ -101,45 +101,39 @@ Input: constellation_mapper([(1, 0), (1, 1), (1, 2)], 3)
 Output: ['...', '***', '...']
 """
 
+def constellation_mapper(stars: list[tuple[int, int]], size: int) -> list[str]:
+
+    # ignore cords outside grid !
+    # skeep duplicates.
+
+    table = [["." for _ in range(size)] for _ in range(size)]
+
+    
+
+    return table
 
 
-print(
-    "canvas: ['*..', '.*.', '..*'] : "
-    f"{constellation_mapper_canvas([(0, 0), (1, 1), (2, 2)], 3)}")
-print(
-    "canvas: ['.*.', '***', '.*.'] : "
-    f"{constellation_mapper_canvas(
-        [(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)}")
-print(
-    "canvas: ['..', '..'] : "
-    f"{constellation_mapper_canvas([], 2)}")
-print(
-    "canvas: ['*.', '.*'] : "
-    f"{constellation_mapper_canvas([(0, 0), (0, 0), (1, 1)], 2)}")
-print(
-    "canvas: ['*..', '...', '...'] : "
-    f"{constellation_mapper_canvas([(0, 0), (5, 5)], 3)}")
-print(
-    "canvas: ['...', '***', '...'] : "
-    f"{constellation_mapper_canvas([(1, 0), (1, 1), (1, 2)], 3)}")
+for row in constellation_mapper([(0, 0), (1, 1), (2, 2)], 3):
+    for i in range(3):
+        print(row[i] + " ", end="")
+    print()
 
+# print(
+#     "canvas: ['*..', '.*.', '..*'] : "
+#     f"{constellation_mapper([(0, 0), (1, 1), (2, 2)], 3)}")
+# print(
+#     "canvas: ['.*.', '***', '.*.'] : " 
+#     f"{constellation_mapper([(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)}")
+# print(
+#     "canvas: ['..', '..'] : "
+#     f"{constellation_mapper([], 2)}")
+# print(
+#     "canvas: ['*.', '.*'] : "
+#     f"{constellation_mapper([(0, 0), (0, 0), (1, 1)], 2)}")
+# print(
+#     "canvas: ['*..', '...', '...'] : "
+#     f"{constellation_mapper([(0, 0), (5, 5)], 3)}")
+# print(
+#     "canvas: ['...', '***', '...'] : "
+#     f"{constellation_mapper([(1, 0), (1, 1), (1, 2)], 3)}")
 
-print(
-    "\n\nscanner: ['*..', '.*.', '..*'] : "
-    f"{constellation_mapper_scanner([(0, 0), (1, 1), (2, 2)], 3)}")
-print(
-    "scanner: ['.*.', '***', '.*.'] : "
-    f"{constellation_mapper_scanner(
-        [(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)}")
-print(
-    "scanner: ['..', '..'] : "
-    f"{constellation_mapper_scanner([], 2)}")
-print(
-    "scanner: ['*.', '.*'] : "
-    f"{constellation_mapper_scanner([(0, 0), (0, 0), (1, 1)], 2)}")
-print(
-    "scanner: ['*..', '...', '...'] : "
-    f"{constellation_mapper_scanner([(0, 0), (5, 5)], 3)}")
-print(
-    "scanner: ['...', '***', '...'] : "
-    f"{constellation_mapper_scanner([(1, 0), (1, 1), (1, 2)], 3)}")
