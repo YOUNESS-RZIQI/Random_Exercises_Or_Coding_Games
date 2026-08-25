@@ -103,6 +103,16 @@ Input: list_intersection_finder([[5]])
 Output: [5]
 """
 
+
+def list_intersection_finder(lists: list[list[int]]) -> list[int]:
+      if not lists or len(lists) == 1:
+            return []
+
+
+      in_all = 
+      for ls in lists:
+
+
 print("set [2, 3] : "
       f"{list_intersection_finder_set(
           [[1, 2, 3], [2, 3, 4], [2, 3, 5]])}")
