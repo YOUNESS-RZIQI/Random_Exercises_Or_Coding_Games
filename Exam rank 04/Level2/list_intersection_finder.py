@@ -46,6 +46,7 @@ def list_intersection_finder_set(lists: list[list[int]]) -> list[int]:
       if len(lists) == 1:
             return lists[0]
 
+      # First way.
       # inter = set(lists[0].copy())
 
       # for num in lists[0]:
@@ -56,6 +57,8 @@ def list_intersection_finder_set(lists: list[list[int]]) -> list[int]:
       # inter = list(inter)
       # inter.sort()
       # return inter
+
+      # second way.
       inter = set()
       sets_list = [set(ls) for ls in lists]
 

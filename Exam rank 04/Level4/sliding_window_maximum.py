@@ -1,31 +1,3 @@
-# def sliding_window_maximum(nums: list[int], k: int) -> list[int]:
-#     # edge cases
-#     n = len(nums)
-#     if n == 0 or k <= 0 or k > n:
-#         return []
-
-#     # slidig window of size k across the array
-#     # valid start = n - k or
-#     # valid range = range(n - k + 1)
-
-#     result = []
-#     for i in range(n - k + 1):
-#         # extract current window chunk
-#         window = nums[i:i+k]
-
-#         # find max in window
-#         max_value: int = max(window)
-#         """
-#         max_value: int = window[0]
-#         for num in window:
-#             if num > max_value:
-#                 max_value = num
-#         """
-#         result.append(max_value)
-
-#     return result
-
-
 """
 Allowed functions: None
 --------------------------------------------------------------------------------
@@ -69,23 +41,26 @@ Input: sliding_window_maximum([1, 2, 3], 0)
 Output: []
 """
 
-print("expected: [3, 3, 5, 5, 6, 7]")
-print(f"output: {sliding_window_maximum([1, 3, -1, -3, 5, 3, 6, 7], 3)}")
 
-print("expected: [2, 3, 4, 5]")
-print(f"output: {sliding_window_maximum([1, 2, 3, 4, 5], 2)}")
+def sliding_window_maximum(nums: list[int], k: int) -> list[int]:
+    if not nums or k <= 0 or k > len(nums):
+        return []
 
-print("expected: [5, 4, 3, 2, 1]")
-print(f"output: {sliding_window_maximum([5, 4, 3, 2, 1], 1)}")
+    return [max(nums[i : i + k]) for i in range(len(nums) - k + 1)]
 
-print("expected: [3]")
-print(f"output: {sliding_window_maximum([1, 2, 3], 3)}")
 
-print("expected: []")
-print(f"output: {sliding_window_maximum([1, 2, 3], 4)}")
 
-print("expected: []")
-print(f"output: {sliding_window_maximum([], 2)}")
+print("[3, 3, 5, 5, 6, 7]" == f"{sliding_window_maximum([1, 3, -1, -3, 5, 3, 6, 7], 3)}")
 
-print("expected: []")
-print(f"output: {sliding_window_maximum([1, 2, 3], 0)}")
+print("[2, 3, 4, 5]" == f"{sliding_window_maximum([1, 2, 3, 4, 5], 2)}")
+
+print("[5, 4, 3, 2, 1]" == f"{sliding_window_maximum([5, 4, 3, 2, 1], 1)}")
+
+
+print("[3]" == f"{sliding_window_maximum([1, 2, 3], 3)}")
+
+print("[]" == f"{sliding_window_maximum([1, 2, 3], 4)}")
+
+print("[]" == f"{sliding_window_maximum([], 2)}")
+
+print("[]" == f"{sliding_window_maximum([1, 2, 3], 0)}")
