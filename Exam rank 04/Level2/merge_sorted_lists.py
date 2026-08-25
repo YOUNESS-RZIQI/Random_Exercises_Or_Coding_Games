@@ -1,49 +1,9 @@
-# """
-# Solutions
-
-# 1) The Algorithmic Upgrade (if imports were allowed):
-# Using a Min-HeapIf your exam allows you to import standard
-# Python libraries, the absolute best tool for merging
-# $K$ sorted lists is heapq.
-# Instead of sorting everything at the end,
-# heapq.merge looks at the first element of each list,
-# picks the smallest one, and moves forward.
-# This drops the time complexity down to $O(N \\log K)$
-# (where $K$ is the number of lists), which is significantly
-# faster for massive datasets.
-
-# Solution:
-# import heapq
-
-# def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
-#     if not lists:
-#         return []
-
-#     # heapq.merge takes unpacked lists and merges them on the fly
-#     # It returns an iterator, so we wrap it in list()
-#     return list(heapq.merge(*lists))
-
-
-
-# 2) Optimization (without extra imports)
-# Even if you have to sort at the end,
-# you can drastically speed up your flattening process.
-# In Python, looping through items one-by-one with .append() is slow.
-# Using .extend() pushes the looping down to the C-level,
-# which executes much faster.
-# Chosen solution below:
-# """
-
-
 # def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
 #     if not lists:
 #         return []
 
 #     temp_list: list[int] = []
 #     for item in lists:
-#         # for n in item:
-#         #   temp_list.append(n) - very slow solution
-#         # use extend()
 #         temp_list.extend(item)
 
 #     return sorted(temp_list)
@@ -58,7 +18,7 @@ def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
 
 The function should:
 - Take a list of sorted integer lists as input
-- Return a single merged list in ascending order
+- Return a single merged list in     order
 - Preserve all duplicate elements in the final result
 - Handle empty lists and empty input gracefully
 - Maintain optimal efficiency for large inputs
@@ -104,6 +64,14 @@ Edge cases to handle:
 - Negative numbers: handle correctly in sort order
 """
 
+def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
+    if not lists:
+        return []
+    merged = []
+    for ls in lists:
+        merged.extend(ls)
+    merged.sort()
+    return merged
 
 
 print(f"[1, 2, 3, 4, 5, 6] : {merge_sorted_lists([[1, 3, 5], [2, 4, 6]])}")
