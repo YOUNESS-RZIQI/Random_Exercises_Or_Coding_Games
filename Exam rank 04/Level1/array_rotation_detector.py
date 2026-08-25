@@ -63,6 +63,19 @@ Output: True
 """
 
 
+def array_rotation_detector(arr1: list[int], arr2: list[int]) -> bool:
+    if len(arr1) != len((arr2)):
+        return False
+    if (not arr1 and not arr2) or arr1 == arr2:
+        return True
+    n = len(arr1)
+    new_arr = arr1 + arr1
+    for i in range(n):
+        if new_arr[i:i+n] == arr2:
+            return True
+    return False
+
+
 
 print(f"True: {array_rotation_detector([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])}")
 print(f"True: {array_rotation_detector([1, 2, 3, 4, 5], [4, 5, 1, 2, 3])}")
